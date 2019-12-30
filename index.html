@@ -13,22 +13,28 @@
           <h1 style= font-size:60px;>Javascript Quiz</h1>
       </header>
       <div class= "container">   
-          <div class="question-container" class="hide">
+          <div id="question-container" class="hide">
           <div id="question">Question</div>
           <div id="answer-buttons" class="btn-grid">
-            <button class="btn">Answer 1</button>
-            <button class="btn">Answer 2</button>
-            <button class="btn">Answer 3</button>
-            <button class="btn">Answer 4</button>
+            <button id="btn-answer" class="btn">Answer 1</button>
+            <button id="btn-answer" class="btn">Answer 2</button>
+            <button id="btn-answer" class="btn">Answer 3</button>
+            <button id="btn-answer" class="btn">Answer 4</button>
             <br>
             <br>
+          <div id='answer'>
+          </div>
           </div>
           </div>
           <div class="controls">
             <button id ="start-button" type="button" class="start-btn">Start</button>
-            <button id ="next-button" type="button" class="next-btn">Next</button>
+            <button id ="score-button" type="button" class="score-btn hide">Score</button>
+            <button id ="next-button" type="button" class="next-btn hide">Next</button>
           </div>
-        </div>            
+        </div>
+            <br>
+            <br>
+            <h2 id ="final-score"></h2>
         <script defer src="assets/script.js"></script>
         </bodybackground="Homework2/Assets/interlaced1/interlaced.png">
       </html>

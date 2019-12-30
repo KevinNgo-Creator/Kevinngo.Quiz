@@ -1,69 +1,90 @@
 var questionContainerEl= document.getElementById('question-container')
-let shuffledQuestion, currentQuestion
 var questionEl = document.getElementById('question')
-var asnwerButtonELement = document.getElementById ('answer-buttons')
+var answerButtonELement = document.getElementById ('answer-buttons')
 var nextButton =document.getElementById('next-button')
-var choicesEl = document.getElementById()
-
-// click listem
+var answer = document.getElementById('answer')
+var btnAnswer = document.getElementById('btn-answer')
+var scoreButton = document.getElementById('score-button')
+let shuffledQuestion, currentQuestion
+// click listen
 var startButton = document.getElementById('start-button')
 startButton.addEventListener('click', startQuiz)
 nextButton.addEventListener('click', () => {
     currentQuestion++
-    setNextQuestion()
+    nextQuestion()
 })
-
 //function
 function startQuiz (){
     startButton.classList.add('hide')
     shuffledQuestion = questions.sort(() => Math.random() - .5)
     currentQuestion = 0
-    // questionContainerEl.classList.remove('hide')
+    questionContainerEl.classList.remove('hide')
+    nextButton.classList.remove('hide')
     nextQuestion()
 }
-
 function nextQuestion (){
     resetState()
     showQuestion(shuffledQuestion[currentQuestion])
+    if (shuffledQuestion.length > currentQuestion + 1) {
+    } else {
+        nextButton.classList.add('hide')
+        scoreButton.classList.remove('hide')
+    }
 }
-
 function showQuestion(question) {
     questionEl.innerText = question.question
-    question.choicesEl.forEach(answers => {
+    question.answers.forEach(answers => {
         const button = document.createElement('button')
-        button.innerText = answer.text
-        button.classList.add('btn')
+        button.innerText = answers.text
+        button.classList.add('btn-answer')
         if (answers.correct) {
             button.dataset.correct = answer.correct
         } 
         button.addEventListener('click', selectAnswer)
-        asnwerButtonELement.appendChild(button)
+        answerButtonELement.appendChild(button)
 })}
-
 function resetState(){
-    nextButton.classList.add('hide')
-    while (asnwerButtonELement.firstChild){
-        asnwerButtonELement.removeChild(asnwerButtonELement.firstChild)
+    while (answerButtonELement.firstChild){
+        answerButtonELement.removeChild(answerButtonELement.firstChild)
 }}
-
 function selectAnswer(e){
-    const selectedButton = e.target
-    const correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct)
-    Array.from(answerButtonsElement.children).forEach(button => {
-    setStatusClass(button, button.dataset.correct)
-})
-    if (shuffledQuestions.length > currentQuestionIndex + 1) {
-    nextButton.classList.remove('hide')
-}}
+}
+
+var answerButton = document.getElementById('btn-answer')
+answerButton.addEventListener('click', clickclick)
+function clickclick(){
+    console.log("one")
+}
+
+// function finalScore(){
+//     score = 0
+//     if (answer.correct){
+//         score++
+//         finalScore.innerText = "SCORE:" + score
+//     }
+// }
 
 var questions = [{
     question: 'what is 2 + 2 ? ',
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answers: "4"
-}],
-// var questions = [{
-//     question: 'Commonly used data types DO NOT include:',
-//     choices: ["strings", "booleans", "alerts", "numbers"],
-//     answer: "alerts"
-// }],
+    answers: [
+        {text: '4', correct:true },
+        {text: '5', correct:false },
+        {text: '6', correct:false },
+        {text: '12', correct:false }
+]},
+{
+    question: 'what is hello ? ',
+    answers: [
+        {text: 'greeting', correct:true },
+        {text: '5', correct:false },
+        {text: '6', correct:false },
+        {text: '12', correct:false }
+]},
+{
+    question: 'what is flower ? ',
+    answers: [
+        {text: 'plant', correct:true },
+        {text: '5', correct:false },
+        {text: '6', correct:false },
+        {text: '12', correct:false }
+]}]
