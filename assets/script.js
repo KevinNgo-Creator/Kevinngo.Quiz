@@ -51,18 +51,14 @@ function selectAnswer(e){
 }
 
 var answerButton = document.getElementById('btn-answer')
-answerButton.addEventListener('click', clickclick)
-function clickclick(){
-    console.log("one")
+answerButton.addEventListener('click', finalScore)
+function finalScore(){
+    score = 0
+    if (answers == "undefined"){
+        score++;
+        alert("points")
+    }
 }
-
-// function finalScore(){
-//     score = 0
-//     if (answer.correct){
-//         score++
-//         finalScore.innerText = "SCORE:" + score
-//     }
-// }
 
 var questions = [{
     question: 'what is 2 + 2 ? ',
