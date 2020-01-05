@@ -14,7 +14,7 @@ var final = document.getElementById('final')
 var field = document.getElementById('field')
 var score = 0
 var quizLength = 5
-var timeLeft = 10
+var timeLeft = 75
 
 startButton.addEventListener('click', startQuiz)
 nextButton.addEventListener('click', () => {
@@ -103,7 +103,7 @@ function selectAnswer(e){
 function timeOut(){
   setTimeout(function(){ alert("Your Time has ended!!"); 
   container.classList.add('hide');
-}, 10000);
+}, 75000);
 }
 
 var questions = [{
